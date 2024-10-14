@@ -1,29 +1,42 @@
-<!-- write take two input and find th the sum of it in php 
+<?php
+// Database connection details
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "your_database";
 
- -->
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-</head>
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-<body>
+// SQL query to fetch data from a table
+$sql = "SELECT id, name, email FROM users";
+$result = $conn->query($sql);
+
+// Check if there are results
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+// Close the connection
+$conn->close();
+?>
 
 
-   <label for="text">Name</label>
-   <input type="text" id="name" name="name">
-
-   <label for="submit"><button>submit</button></label>
-   <p>Hello, " "</p>
 
 
-   <?php
 
 
-   ?>
-</body>
 
-</html>
+$conn = new  mysql($servername, $username, $dbname);
+
+if($conn ->)
